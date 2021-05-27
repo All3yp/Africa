@@ -36,7 +36,6 @@ struct ContentView: View {
             } //: List
             .navigationBarTitle("Africa", displayMode: .large)
         } //: Nav
-            .padding()
     }
 }
 
