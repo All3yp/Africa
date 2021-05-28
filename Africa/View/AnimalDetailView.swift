@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AnimalDetailView: View {
     // MARK: - PROPERTIES
-
+    
     let animal: Animal
-
+    
     // MARK: - BODY
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -31,23 +31,23 @@ struct AnimalDetailView: View {
                             .frame(height: 6)
                             .offset(y: 24)
                     )
-
+                
                 // Headline
                 Text(animal.headline)
                     .font(.headline)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.accentColor)
                     .padding(.horizontal)
-
+                
                 // Gallery
                 Group {
                     HeadingView(headingImage: "photo.on.rectangle.angled",
                                 headingText: "Wilderness in pictures")
-
+                    
                     InsetGalleryView(animal: animal)
                 }
                 .padding(.horizontal)
-
+                
                 // Facts
                 Group {
                     HeadingView(headingImage: "questionmark.ci",
@@ -58,21 +58,36 @@ struct AnimalDetailView: View {
                 .padding(.horizontal)
                 
                 // Description
-
+                
                 Group {
                     HeadingView(headingImage: "info.circle",
                                 headingText: "All about \(animal.name)")
-
+                    
                     Text(animal.description)
                         .multilineTextAlignment(.leading)
                         .layoutPriority(1)
                 }
                 .padding(.horizontal)
-
+                
                 // Map
-
+                
+                Group {
+                    HeadingView(headingImage: "map",
+                                headingText: "National Parks")
+                    
+                    InsetMapView()
+                }
+                .padding()
+                
                 // Link
-
+                Group {
+                    HeadingView(headingImage: "books.vertical",
+                                headingText: "Learn More")
+                    
+                    ExternalWebLinkView(animal: animal)
+                        .padding()
+                }
+                
             } //: VStack
             .navigationBarTitle("Learn about \(animal.name)", displayMode: .inline)
         } //: Scroll
@@ -82,9 +97,9 @@ struct AnimalDetailView: View {
 
 // MARK: - PREVIEW
 struct AnimalDetailView_Previews: PreviewProvider {
-
+    
     static let animals: [Animal] = Bundle.main.decode("animals.json")
-
+    
     static var previews: some View {
         NavigationView {
             AnimalDetailView(animal: animals[0])
