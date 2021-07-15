@@ -10,6 +10,7 @@ import MapKit
 
 
 struct MapView: View {
+
     // MARK: - PROPERTIES
 
     @State private var region: MKCoordinateRegion = {
@@ -20,21 +21,75 @@ struct MapView: View {
         return mapRegion
     }()
 
-    let location: [NationalParkLocation] = Bundle.main.decode("locations.json")
+    let locations: [NationalParkLocation] = Bundle.main.decode("locations.json")
 
     // MARK: - BODY
     var body: some View {
         Map(coordinateRegion: $region,
-            annotationItems: location) { item in
-//            MapPin(coordinate: item.location, tint: .accentColor)
-//            MapMarker(coordinate: item.location, tint: .accentColor)
+            annotationItems: locations) { item in
+            // (A) PIN: OLD STYLE (always static)
+            //            MapPin(coordinate: item.location, tint: .accentColor)
+
+            // (B) MARKER: NEW STYLE (always static)
+            //            MapMarker(coordinate: item.location, tint: .accentColor)
+
+            // (C) CUSTOM BASIC ANNOTATION (it could be interactive)
+            //            MapAnnotation(coordinate: item.location) {
+            //                Image("logo")
+            //                    .resizable()
+            //                    .scaledToFit()
+            //                    .frame(width: 32, height: 32, alignment: .center)
+            //            } //: MapAnnotation
+
+            // (D) CUSTOM ADVANCED ANNOTATION (it could be interactive)
             MapAnnotation(coordinate: item.location) {
-                Image("logo")
+                MapAnnotationView(location: item)
+            }
+        } //: Map
+        .overlay(
+            HStack(alignment: .center, spacing: 12) {
+                Image("compass")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 32, height: 32, alignment: .center)
-            } //: MapAnnotation
-        }
+                    .frame(width: 48, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack {
+                        Text("Latitude:")
+                            .font(.footnote)
+                            .fontWeight(.bold)
+                            .foregroundColor(.accentColor)
+                        Spacer()
+                        Text("\(region.center.latitude)")
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                    } //: HStack
+                    Divider()
+
+                    HStack {
+                        Text("Longitude:")
+                            .font(.footnote)
+                            .fontWeight(.bold)
+                            .foregroundColor(.accentColor)
+                        Spacer()
+                        Text("\(region.center.longitude)")
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                    } //: HStack
+
+                } //: VStack
+
+            } //: HStack
+            .padding(.vertical, 12)
+            .padding(.horizontal, 12)
+            .background(
+                Color.black
+                    .cornerRadius(8)
+                    .opacity(0.6)
+            )
+            .padding()
+            , alignment: .top
+        )
     }
 }
 
