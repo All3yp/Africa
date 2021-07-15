@@ -10,7 +10,7 @@ import SwiftUI
 struct VideoListView: View {
     // MARK: - PROPERTIES
 
-   @State var videos: [Video] = Bundle.main.decode("videos.json")
+    @State var videos: [Video] = Bundle.main.decode("videos.json")
 
     let hapticImpact = UIImpactFeedbackGenerator(style: .medium)
 
@@ -19,8 +19,14 @@ struct VideoListView: View {
         NavigationView {
             List {
                 ForEach(videos) { item in
-                    VideoListItemView(video: item)
-                        .padding(.vertical, 8)
+                    NavigationLink(
+                        destination: VideoPlayerView(
+                            videoSelected: item.id, videoTitle: item.name
+                        )
+                    ) {
+                        VideoListItemView(video: item)
+                            .padding(.vertical, 8)
+                    }
                 } //: ForEach
             } //: List
             .listStyle(InsetGroupedListStyle())
