@@ -7,6 +7,7 @@
 - SwiftUI
 - MapKit
 - AVKit
+- Animations
 - Mac Catalyst
 
 </br>
