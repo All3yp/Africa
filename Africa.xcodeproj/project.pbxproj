@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1807DE9E26A0EC670027DD37 /* MotionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1807DE9D26A0EC670027DD37 /* MotionAnimationView.swift */; };
 		180D4D5B265DE43000C1C29C /* CoverImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180D4D5A265DE43000C1C29C /* CoverImageView.swift */; };
 		180D4D60265EC66C00C1C29C /* CoverImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180D4D5F265EC66C00C1C29C /* CoverImageModel.swift */; };
 		180D4D63265ED48100C1C29C /* CodableBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180D4D62265ED48100C1C29C /* CodableBundleExtension.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1807DE9D26A0EC670027DD37 /* MotionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionAnimationView.swift; sourceTree = "<group>"; };
 		180D4D5A265DE43000C1C29C /* CoverImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageView.swift; sourceTree = "<group>"; };
 		180D4D5F265EC66C00C1C29C /* CoverImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageModel.swift; sourceTree = "<group>"; };
 		180D4D62265ED48100C1C29C /* CodableBundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableBundleExtension.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				182D134926604B5A00A7F2F9 /* InsetMapView.swift */,
 				18D2EA9C269FA3F900C2CF66 /* VideoPlayerView.swift */,
 				1876740826A0CF2100F15EF8 /* MapAnnotationView.swift */,
+				1807DE9D26A0EC670027DD37 /* MotionAnimationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				1823112F265F36930031A2FA /* InsetGalleryView.swift in Sources */,
 				187DF4EB2669BFC200E9F46C /* VideoListItemView.swift in Sources */,
 				180D4D63265ED48100C1C29C /* CodableBundleExtension.swift in Sources */,
+				1807DE9E26A0EC670027DD37 /* MotionAnimationView.swift in Sources */,
 				1823112D265F31F10031A2FA /* HeadingView.swift in Sources */,
 				18D2EA9D269FA3F900C2CF66 /* VideoPlayerView.swift in Sources */,
 			);
